@@ -1,5 +1,18 @@
+'use client'
+import { useState } from "react";
 import Image from "../../../node_modules/next/image";
+import { signIn, signOut } from "next-auth/react";
 export default function LandingPage(){
+  const [email,setEmail]=useState("");
+  const [password,setPassword]=useState("");
+const onsubmit =(e:React.FormEvent)=>{
+e.preventDefault();
+signIn('credentials',{
+  callbackUrl:"/dashboard/admin",
+  email,password
+})
+
+}
     return(
         <div className="flex min-h-full flex-col justify-center px-6 py-12 lg:px-8">
         <div className="sm:mx-auto sm:w-full sm:max-w-sm">
@@ -9,7 +22,7 @@ export default function LandingPage(){
           </h2>
         </div>
         <div className="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
-          <form className="space-y-6" action="#" method="POST">
+          <form onSubmit={onsubmit} className="space-y-6" action="#" method="POST">
             <div>
               <label
                 htmlFor="email"
@@ -21,9 +34,10 @@ export default function LandingPage(){
                 <input
                   id="email"
                   name="email"
-                  type="email"
+                  type="text"
                   autoComplete="email"
                   required
+                  onChange={(e) => setEmail(e.target.value)} 
                   className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-green-400 sm:text-sm sm:leading-6"
                 />
               </div>
@@ -52,17 +66,19 @@ export default function LandingPage(){
                   type="password"
                   autoComplete="current-password"
                   required
+                  onChange={(e) => setPassword(e.target.value)} 
                   className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-green-400 sm:text-sm sm:leading-6"
                 />
               </div>
             </div>
             <div>
-              <button
+              <button 
+              
                 type="submit"
                 className="flex w-full justify-center rounded-md bg-blue-500 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
               >
                 Sign in
-              </button>
+              </button >
             </div>
           </form>
          

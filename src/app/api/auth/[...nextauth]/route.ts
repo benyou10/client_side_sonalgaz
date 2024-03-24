@@ -1,8 +1,14 @@
+import executequery from "@/components/mysqlconnection";
 import NextAuth from "next-auth";
 import Credentials from "next-auth/providers/credentials";
 import Email from "next-auth/providers/email";
+import { pages } from "next/dist/build/templates/app-page";
 
 const authOptions = {
+pages:{
+  signIn: '/',
+}
+  ,
   session: {
     strategy: 'jwt',
     maxAge: 2 * 24 * 60 * 60,
@@ -11,16 +17,21 @@ const authOptions = {
     Credentials({
       name: "Credentials",
       credentials: {
-        email: { label: "Email", type: "email", placeholder: "Enter your email" },
+        email: { label: "Email", type: "username", placeholder: "Enter your email" },
         password: { label: "Password", type: "password", placeholder: "Password" }
       },
       async authorize(credentials) {
         // Add your authorization logic here
         const { email, password } = credentials;
         // Example: Check if email and password are valid
-        if (email === 'example@example.com' && password === 'password') {
+        const query=`select * from employees where username="${email}" and matricule=${password}`
+        const user=await executequery(query,[])
+        
+        if (user) {
           // Return user object if credentials are valid
+          console.log('true')
           return { id: 1, name: 'John Doe', email: 'example@example.com' };
+
         } else {
           // Return null if credentials are invalid
           return null;
