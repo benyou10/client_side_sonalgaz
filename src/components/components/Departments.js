@@ -1,23 +1,15 @@
 import React from "react";
 
-const User = ({ user, deleteUser,editUser}) => {
+const Departments = ({ user, deleteUser,editUser}) => {
   return (
     <tr key={user.id}>
       <td className="text-left px-6 py-4 whitespace-nowrap">
         <div className="text-sm text-gray-500">{user.id}</div>
       </td>
       <td className="text-left px-6 py-4 whitespace-nowrap">
-        <div className="text-sm text-gray-500">{user.firstName}</div>
+        <div className="text-sm text-gray-500">{user.department_name}</div>
       </td>
-      <td className="text-left px-6 py-4 whitespace-nowrap">
-        <div className="text-sm text-gray-500">{user.lastName}</div>
-      </td>
-      <td className="text-left px-6 py-4 whitespace-nowrap">
-        <div className="text-sm text-gray-500">{user.birthday}</div>
-      </td>
-      <td className="text-left px-6 py-4 whitespace-nowrap">
-        <div className="text-sm text-gray-500">{user.role_id}</div>
-      </td>
+    
       
       <td className="text-right px-6 py-4 whitespace-nowrap">
         <a
@@ -35,4 +27,4 @@ const User = ({ user, deleteUser,editUser}) => {
   );
 };
 
-export default User;
+export default Departments;

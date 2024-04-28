@@ -1,5 +1,5 @@
 "use client";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import ChartOne from "../Charts/ChartOne";
 import ChartThree from "../Charts/ChartThree";
 import ChartTwo from "../Charts/ChartTwo";
@@ -8,16 +8,32 @@ import TableOne from "../Tables/TableOne";
 import CardDataStats from "../CardDataStats";
 import MapOne from "../Maps/MapOne";
 import { Button } from "@/components/ui/button"
+import { useSession } from "next-auth/react";
+import Calendar from "../Calender";
 
 
 
 const ECommerce: React.FC = () => {
+  const [loading, setLoading] = useState(true);
+  const {data:session, loadingg} = useSession();
+  useEffect(() => {
+    // Simulate loading for 2 seconds
+    const timeout = setTimeout(() => {
+      setLoading(false);
+    }, 2000);
+
+    // Cleanup function
+    return () => clearTimeout(timeout);
+  }, []); // Empty dependency array means this effect runs only once, after the initial render
+
   return (
     <>
       <div className="rounded-xl border flex justify-between   border-stroke bg-white px-7.5 py-2 mb-4 shadow-default dark:border-strokedark dark:bg-boxdark-2">
         <div>
           <h1>good morning</h1>
-          <h1 className="font-semibold" >Zatout mphamed Hr manager</h1>
+          <div className="font-extrabold text-xl"></div>
+          <h1 className="font-semibold" >{session && !loading && `${session.user.name}    ${session.user.email}   ${session.user.image} `}</h1>
+
            </div>
         <div >
       <button className="rounded-lg bg-orange-500 text-sm font-semibold p-3  sm:mx-5 text-white" >Add Employee</button>
@@ -43,9 +59,9 @@ const ECommerce: React.FC = () => {
       </div>
 
       <div className="mt-4 grid grid-cols-12 gap-4 md:mt-6 md:gap-6 2xl:mt-7.5 2xl:gap-7.5">
-        <ChartOne />
+       <Calendar/> 
         
-        <ChartTwo />
+      
      <ChatCard/>
         
         

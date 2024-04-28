@@ -1,16 +1,16 @@
 import React from "react";
 
-const User = ({ user, deleteUser,editUser}) => {
+const Record = ({ user, deleteUser,editUser}) => {
   return (
     <tr key={user.id}>
       <td className="text-left px-6 py-4 whitespace-nowrap">
         <div className="text-sm text-gray-500">{user.id}</div>
       </td>
       <td className="text-left px-6 py-4 whitespace-nowrap">
-        <div className="text-sm text-gray-500">{user.firstName}</div>
+        <div className="text-sm text-gray-500">{user.attendence_time}</div>
       </td>
       <td className="text-left px-6 py-4 whitespace-nowrap">
-        <div className="text-sm text-gray-500">{user.lastName}</div>
+        <div className="text-sm text-gray-500">{user.attendence_record}</div>
       </td>
       <td className="text-left px-6 py-4 whitespace-nowrap">
         <div className="text-sm text-gray-500">{user.birthday}</div>
@@ -35,4 +35,4 @@ const User = ({ user, deleteUser,editUser}) => {
   );
 };
 
-export default User;
+export default Record;

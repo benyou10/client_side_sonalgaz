@@ -20,6 +20,7 @@ import {
   Cog6ToothIcon,
   InboxIcon,
   PowerIcon,
+  ForwardIcon,
 } from "@heroicons/react/24/solid";
 import {
   ChevronRightIcon,
@@ -27,6 +28,8 @@ import {
   CubeTransparentIcon,
   MagnifyingGlassIcon,
 } from "@heroicons/react/24/outline";
+import Link from "next/link";
+import {  signOut } from "next-auth/react";
  
 export function SidebarWithBurgerMenu({sidebarOpen,setSidebarOpen}) {
   const [open, setOpen] = React.useState(0);
@@ -49,6 +52,7 @@ export function SidebarWithBurgerMenu({sidebarOpen,setSidebarOpen}) {
             />
           }
         >
+          <Link href='/dashboard'>
           <ListItem className="p-0" selected={open === 1}>
             <AccordionHeader onClick={() => handleOpen(1)} className="border-b-0 p-3">
               <ListItemPrefix>
@@ -59,26 +63,52 @@ export function SidebarWithBurgerMenu({sidebarOpen,setSidebarOpen}) {
               </Typography>
             </AccordionHeader>
           </ListItem>
+          </Link>
           <AccordionBody className="py-1">
             <List className="p-0">
+              <Link href='/dashboard/attendence'>
               <ListItem>
                 <ListItemPrefix>
                   <ChevronRightIcon strokeWidth={3} className="h-3 w-5" />
                 </ListItemPrefix>
-                Analytics
+                attendence
               </ListItem>
+              </Link>
+              <Link href='/dashboard/employees'>
               <ListItem>
                 <ListItemPrefix>
                   <ChevronRightIcon strokeWidth={3} className="h-3 w-5" />
                 </ListItemPrefix>
-                Reporting
+                employees
               </ListItem>
+              </Link>
+              <Link href="/dashboard/admin" >
               <ListItem>
                 <ListItemPrefix>
                   <ChevronRightIcon strokeWidth={3} className="h-3 w-5" />
                 </ListItemPrefix>
-                Projects
+
+                devices
               </ListItem>
+              </Link>
+              <Link href="/dashboard/modattendence" >
+              <ListItem>
+                <ListItemPrefix>
+                  <ChevronRightIcon strokeWidth={3} className="h-3 w-5" />
+                </ListItemPrefix>
+
+                change attendence records state
+              </ListItem>
+              </Link>
+              <Link href="/dashboard/departments" >
+              <ListItem>
+                <ListItemPrefix>
+                  <ChevronRightIcon strokeWidth={3} className="h-3 w-5" />
+                </ListItemPrefix>
+
+                departments
+              </ListItem>
+              </Link>
             </List>
           </AccordionBody>
         </Accordion>
@@ -91,43 +121,11 @@ export function SidebarWithBurgerMenu({sidebarOpen,setSidebarOpen}) {
             />
           }
         >
-          <ListItem className="p-0" selected={open === 2}>
-            <AccordionHeader onClick={() => handleOpen(2)} className="border-b-0 p-3">
-              <ListItemPrefix>
-                <ShoppingBagIcon className="h-5 w-5" />
-              </ListItemPrefix>
-              <Typography color="blue-gray" className="mr-auto font-normal">
-                E-Commerce
-              </Typography>
-            </AccordionHeader>
-          </ListItem>
-          <AccordionBody className="py-1">
-            <List className="p-0">
-              <ListItem>
-                <ListItemPrefix>
-                  <ChevronRightIcon strokeWidth={3} className="h-3 w-5" />
-                </ListItemPrefix>
-                Orders
-              </ListItem>
-              <ListItem>
-                <ListItemPrefix>
-                  <ChevronRightIcon strokeWidth={3} className="h-3 w-5" />
-                </ListItemPrefix>
-                Products
-              </ListItem>
-            </List>
-          </AccordionBody>
+         
+        
         </Accordion>
         <hr className="my-2 border-blue-gray-50" />
-        <ListItem>
-          <ListItemPrefix>
-            <InboxIcon className="h-5 w-5" />
-          </ListItemPrefix>
-          Inbox
-          <ListItemSuffix>
-            <Chip value="14" size="sm" variant="ghost" color="blue-gray" className="rounded-full" />
-          </ListItemSuffix>
-        </ListItem>
+      
         <ListItem>
           <ListItemPrefix>
             <UserCircleIcon className="h-5 w-5" />
@@ -140,11 +138,23 @@ export function SidebarWithBurgerMenu({sidebarOpen,setSidebarOpen}) {
           </ListItemPrefix>
           Settings
         </ListItem>
+        <Link href='/api/auth/signout'
+
+        onClick={e => {e.preventDefault()
+          
+       signOut()}}>
         <ListItem>
           <ListItemPrefix>
             <PowerIcon className="h-5 w-5" />
           </ListItemPrefix>
           Log Out
+        </ListItem>
+        </Link>
+        <ListItem>
+          <ListItemPrefix>
+            <ForwardIcon className="h-5 w-5" />
+          </ListItemPrefix>
+          Contact
         </ListItem>
       </List>
   

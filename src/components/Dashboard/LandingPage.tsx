@@ -8,7 +8,7 @@ export default function LandingPage(){
 const onsubmit =(e:React.FormEvent)=>{
 e.preventDefault();
 signIn('credentials',{
-  callbackUrl:"/dashboard/admin",
+  callbackUrl:"/dashboard",
   email,password
 })
 

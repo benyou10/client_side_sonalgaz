@@ -4,12 +4,13 @@ import Credentials from "next-auth/providers/credentials";
 import Email from "next-auth/providers/email";
 import { pages } from "next/dist/build/templates/app-page";
 
-const authOptions = {
+export const  authOptions = {
 pages:{
   signIn: '/',
 }
   ,
   session: {
+    
     strategy: 'jwt',
     maxAge: 2 * 24 * 60 * 60,
   },
@@ -24,13 +25,15 @@ pages:{
         // Add your authorization logic here
         const { email, password } = credentials;
         // Example: Check if email and password are valid
-        const query=`select * from employees where username="${email}" and matricule=${password}`
+        const query=`select * from employees where first_name="${email}" and matricule=${password}`
         const user=await executequery(query,[])
         
         if (user) {
+          console.log(user)
           // Return user object if credentials are valid
-          console.log('true')
-          return { id: 1, name: 'John Doe', email: 'example@example.com' };
+         // Assuming user is an array and we take the first result
+          return { id:0,name:user.first_name,email:user.last_name,image:user.role_id };
+          
 
         } else {
           // Return null if credentials are invalid
@@ -50,7 +53,16 @@ pages:{
     //   },
     //   from: process.env.EMAIL_FROM
     // })
-  ]
+  ],callbacks: {
+
+   
+    session: ({session, token,user} ) => {
+    
+
+      return session;
+    }
+  }
+  
 };
 
 const handler = NextAuth(authOptions);

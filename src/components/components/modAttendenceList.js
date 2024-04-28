@@ -1,16 +1,19 @@
 import { React } from "react";
 import { useState } from "react";
 import { useEffect } from "react";
-import User from "./User";
+import User from "./record";
 import EditUser from "./EditUser";
+import Record from "./record";
+import ModRecord from "./ModRecord";
 
-const UserList = ({ user }) => {
-  const USER_API_BASE_URL = "http://localhost:8080/api/v1/users";
+const ModAttendenceRecords = ({ user }) => {
+  const USER_API_BASE_URL = "http://localhost:8080/api/v1/archive";
   const [users, setUsers] = useState(null);
   const [loading, setLoading] = useState(true);
   const [userId, setUserId] = useState(null);
   const [responseUser, setResponseUser] = useState(null);
-    
+  const [isLoading, setIsLoading] = useState(false);
+
     
     useEffect(() => {
         const fetchData = async () => {
@@ -47,9 +50,28 @@ const UserList = ({ user }) => {
         e.preventDefault();
         setUserId(id);
       };
+      const FetchingDataFromDevice = async () => {
+        setIsLoading(true); // Set loading state to true when starting the request
+        try {
+          const response = await fetch("http://localhost:8080/api/v1/devices/AttendanceRecord/1", {
+            method: "GET",
+            headers: {
+              "Content-Type": "application/json",
+            },
+          });
+          const data = await response.json();
+          setResponse(data);
+        } catch (error) {
+          console.error("Error:", error);
+        } finally {
+          setIsLoading(false); // Set loading state back to false after request completes
+        }
+      };
   return (
     <>
       <div className="container mx-auto my-8">
+
+        <button disabled={isLoading} onClick={FetchingDataFromDevice} className="bg-green-500 p-2 font-extrabold text-white rounded-lg mb-3">{isLoading ? "fetching data from device..." : "Download new  Records"}</button>
         <div className="flex shadow border-b">
           <table className="min-w-full">
             <thead className="bg-gray-50">
@@ -58,27 +80,27 @@ const UserList = ({ user }) => {
                   ID
                 </th>
                 <th className="text-left font-medium text-gray-500 uppercase tracking-wide py-3 px-6">
-                  First Name
+                  Attendence time
                 </th>
                 <th className="text-left font-medium text-gray-500 uppercase tracking-wide py-3 px-6">
-                  Last Name
+                  Attendence Record
                 </th>
                 <th className="text-left font-medium text-gray-500 uppercase tracking-wide py-3 px-6">
-                  Email
+                  state
                 </th>
                 <th className="text-left font-medium text-gray-500 uppercase tracking-wide py-3 px-6">
-                  birthday
+                  name
                 </th>
                
                 <th className="text-right font-medium text-gray-500 uppercase tracking-wide py-3 px-6">
-                  Actions
+                  department
                 </th>
               </tr>
             </thead>
             {!loading && (
               <tbody className="bg-white">
                 {users?.map((user) => (
-                  <User
+                  <ModRecord
                     user={user}
                     key={user.id}
                     deleteUser={deleteUser}
@@ -92,10 +114,9 @@ const UserList = ({ user }) => {
           </table>
         </div>
       </div>
-      <EditUser userId={userId} setResponseUser={setResponseUser} />
       
     </>
   );
 };
 
-export default UserList;
+export default ModAttendenceRecords;

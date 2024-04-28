@@ -1,11 +1,14 @@
 import { React } from "react";
 import { useState } from "react";
 import { useEffect } from "react";
-import User from "./User";
+import User from "./devices";
 import EditUser from "./EditUser";
+import Devices from "./devices";
+import Departments from "./Departments";
+import EditDepartment from "./EditDepartment";
 
-const UserList = ({ user }) => {
-  const USER_API_BASE_URL = "http://localhost:8080/api/v1/users";
+const DepartmentsList = ({ user }) => {
+  const USER_API_BASE_URL = "http://localhost:8080/api/v1/department";
   const [users, setUsers] = useState(null);
   const [loading, setLoading] = useState(true);
   const [userId, setUserId] = useState(null);
@@ -58,27 +61,21 @@ const UserList = ({ user }) => {
                   ID
                 </th>
                 <th className="text-left font-medium text-gray-500 uppercase tracking-wide py-3 px-6">
-                  First Name
+                department  name
                 </th>
-                <th className="text-left font-medium text-gray-500 uppercase tracking-wide py-3 px-6">
-                  Last Name
-                </th>
-                <th className="text-left font-medium text-gray-500 uppercase tracking-wide py-3 px-6">
-                  Email
-                </th>
-                <th className="text-left font-medium text-gray-500 uppercase tracking-wide py-3 px-6">
-                  birthday
-                </th>
+           
+               
                
                 <th className="text-right font-medium text-gray-500 uppercase tracking-wide py-3 px-6">
                   Actions
                 </th>
               </tr>
             </thead>
+          
             {!loading && (
               <tbody className="bg-white">
                 {users?.map((user) => (
-                  <User
+                  <Departments
                     user={user}
                     key={user.id}
                     deleteUser={deleteUser}
@@ -92,10 +89,10 @@ const UserList = ({ user }) => {
           </table>
         </div>
       </div>
-      <EditUser userId={userId} setResponseUser={setResponseUser} />
+      <EditDepartment userId={userId} setResponseUser={setResponseUser} />
       
     </>
   );
 };
 
-export default UserList;
+export default DepartmentsList;

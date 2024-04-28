@@ -1,11 +1,12 @@
 import { React } from "react";
 import { useState } from "react";
 import { useEffect } from "react";
-import User from "./User";
+import User from "./devices";
 import EditUser from "./EditUser";
+import Devices from "./devices";
 
-const UserList = ({ user }) => {
-  const USER_API_BASE_URL = "http://localhost:8080/api/v1/users";
+const DevicesList = ({ user }) => {
+  const USER_API_BASE_URL = "http://localhost:8080/api/v1/devices";
   const [users, setUsers] = useState(null);
   const [loading, setLoading] = useState(true);
   const [userId, setUserId] = useState(null);
@@ -58,27 +59,32 @@ const UserList = ({ user }) => {
                   ID
                 </th>
                 <th className="text-left font-medium text-gray-500 uppercase tracking-wide py-3 px-6">
-                  First Name
+                device name
                 </th>
                 <th className="text-left font-medium text-gray-500 uppercase tracking-wide py-3 px-6">
-                  Last Name
+                  password
                 </th>
                 <th className="text-left font-medium text-gray-500 uppercase tracking-wide py-3 px-6">
-                  Email
+                ip_address
                 </th>
                 <th className="text-left font-medium text-gray-500 uppercase tracking-wide py-3 px-6">
-                  birthday
+                  port
                 </th>
+                <th className="text-left font-medium text-gray-500 uppercase tracking-wide py-3 px-6">
+                  Connection_state
+                </th>
+               
                
                 <th className="text-right font-medium text-gray-500 uppercase tracking-wide py-3 px-6">
                   Actions
                 </th>
               </tr>
             </thead>
+          
             {!loading && (
               <tbody className="bg-white">
                 {users?.map((user) => (
-                  <User
+                  <Devices
                     user={user}
                     key={user.id}
                     deleteUser={deleteUser}
@@ -98,4 +104,4 @@ const UserList = ({ user }) => {
   );
 };
 
-export default UserList;
+export default DevicesList;
