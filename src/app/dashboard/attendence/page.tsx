@@ -27,7 +27,7 @@ export default function Home() {
     role:"",
     department:""
   });
-  const {data:session, loading:loadingg} = useSession();
+  const {data:session, loadingg} = useSession();
 
   return (
    
@@ -36,7 +36,7 @@ export default function Home() {
       <main >
         
      
-        {session  && session.user.image !==1 ? <AttendenceRecords user={responseUser} /> :<div className='text-5xl text-center'>u dont have access to this page</div> }
+        {session  && session.user.image != "employee_default" ? <AttendenceRecords user={responseUser} /> :<div className='text-5xl text-center'>u dont have access to this page</div> }
 
       
       

@@ -10,17 +10,21 @@ const AddDevices = () => {
 
   const [isOpen, setIsOpen] = useState(false);
   const [user, setUser] = useState({
-    device_name:"",
+    id: "",
+    deviceName:"",
     ip_address:"",
     port:"",
-    password:""
+    password:"",
+    connection_State	:"NOT_CONNECTED",
  
   });
   const [responseUser, setResponseUser] = useState({
-    device_name:"",
+    id: "",
+    deviceName:"",
     ip_address: "",
     port: "",
-    password:""
+    password:"",
+    connection_State	:"NOT_CONNECTED",
   });
 
   function closeModal() {
@@ -57,10 +61,12 @@ const AddDevices = () => {
   const reset = (e) => {
     e.preventDefault();
     setUser({
-      device_name:"",
+      id: "",
+      deviceName:"",
         ip_address:"",
         port:"",
-        password:""
+        password:"",
+        connection_State	:"NOT_CONNECTED",
 
     });
     setIsOpen(false);
@@ -106,8 +112,8 @@ const AddDevices = () => {
                       </label>
                       <input
                         type="text"
-                        name="device_name"
-                        value={user.device_name}
+                        name="deviceName"
+                        value={user.deviceName}
                         onChange={(e) => handleChange(e)}
                         className="h-10 w-96 border mt-2 px-2 py-2"></input>
                     </div>

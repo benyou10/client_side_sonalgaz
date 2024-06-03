@@ -3,15 +3,18 @@ import { useState } from "react";
 import { useEffect } from "react";
 import User from "./User";
 import EditUser from "./EditUser";
+import { useSession } from "next-auth/react";
 
 const UserList = ({ user }) => {
-  const USER_API_BASE_URL = "http://localhost:8080/api/v1/users";
+  
   const [users, setUsers] = useState(null);
   const [loading, setLoading] = useState(true);
   const [userId, setUserId] = useState(null);
   const [responseUser, setResponseUser] = useState(null);
-    
-    
+  const { data: session, status } = useSession();
+  console.log(session?.user?.name?.department.id)
+    const USER_API_BASE_URL = "http://localhost:8080/api/v1/users/bydepartment/" +session?.user?.name?.id ;
+
     useEffect(() => {
         const fetchData = async () => {
           setLoading(true);
@@ -30,7 +33,7 @@ const UserList = ({ user }) => {
           setLoading(false);
         };
         fetchData();
-      },[user,responseUser]);
+      },[user,responseUser,session?.user?.name?.id]);
       const deleteUser = (e, id) => {
         e.preventDefault();
         fetch(USER_API_BASE_URL + "/" + id, {
@@ -55,7 +58,7 @@ const UserList = ({ user }) => {
             <thead className="bg-gray-50">
               <tr>
                 <th className="text-left font-medium text-gray-500 uppercase tracking-wide py-3 px-6">
-                  ID
+                  id number
                 </th>
                 <th className="text-left font-medium text-gray-500 uppercase tracking-wide py-3 px-6">
                   First Name
@@ -63,21 +66,19 @@ const UserList = ({ user }) => {
                 <th className="text-left font-medium text-gray-500 uppercase tracking-wide py-3 px-6">
                   Last Name
                 </th>
-                <th className="text-left font-medium text-gray-500 uppercase tracking-wide py-3 px-6">
-                  Email
-                </th>
+              
                 <th className="text-left font-medium text-gray-500 uppercase tracking-wide py-3 px-6">
                   birthday
                 </th>
-               
+                
                 <th className="text-right font-medium text-gray-500 uppercase tracking-wide py-3 px-6">
                   Actions
                 </th>
               </tr>
             </thead>
-            {!loading && (
-              <tbody className="bg-white">
-                {users?.map((user) => (
+            {!loading && Array.isArray(users) && (
+              <tbody className="bg-w hite">
+           {users?.map((user) => (
                   <User
                     user={user}
                     key={user.id}

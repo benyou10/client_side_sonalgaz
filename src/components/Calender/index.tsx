@@ -2,7 +2,7 @@ import Breadcrumb from "../Breadcrumbs/Breadcrumb";
 
 const Calendar = () => {
   return (
-    <div className="col-span-12 rounded-sm border border-stroke bg-white px-5 pb-5 pt-7.5 shadow-default dark:border-strokedark dark:bg-boxdark sm:px-7.5 xl:col-span-8">
+    <div className="col-span-12 rounded-sm border border-stroke bg-white px-5 pb-5 pt-7.5 shadow-default dark:border-strokedark dark:bg-boxdark sm:px-7.5 xl:col-span-12">
 
     <div className="mx-auto max-w-7xl">
       <Breadcrumb pageName="Calendar" />
@@ -45,30 +45,30 @@ const Calendar = () => {
           <tbody>
             {/* <!-- Line 1 --> */}
             <tr className="grid grid-cols-7">
-              <td className="ease relative h-20 cursor-pointer border border-stroke p-2 transition duration-500 hover:bg-gray dark:border-strokedark dark:hover:bg-meta-4 md:h-25 md:p-6 xl:h-31">
-                <span className="font-medium text-black dark:text-white">
+              <td className="ease relative h-20 bg-green-200 cursor-pointer border border-stroke  transition duration-500 hover:bg-gray dark:border-strokedark dark:hover:bg-meta-4 md:h-25  xl:h-31">
+                <h1 className="font-medium mb-2  text-black dark:text-white">
                   1
-                </span>
-                <div className="group h-16 w-full flex-grow cursor-pointer py-1 md:h-30">
-                  <span className="group-hover:text-primary md:hidden">
-                    More
-                  </span>
-                  <div className="event invisible absolute left-2 z-99 mb-1 flex w-[200%] flex-col rounded-sm border-l-[3px] border-primary bg-gray px-3 py-1 text-left opacity-0 group-hover:visible group-hover:opacity-100 dark:bg-meta-4 md:visible md:w-[190%] md:opacity-100">
-                    <span className="event-name text-sm font-semibold text-black dark:text-white">
-                      Redesign Website
-                    </span>
-                    <span className="time text-sm font-medium text-black dark:text-white">
-                      1 Dec - 2 Dec
-                    </span>
-                  </div>
-                </div>
+                </h1>
+                <h1 className="font-medium  px-4 py-2 border-b-2 text-black dark:text-white">
+                  8:10:30
+                </h1>
+                <h1 className="font-medium px-4 py-2  text-black dark:text-white">
+                  12:55:50
+                </h1>
+           
               </td>
-              <td className="ease relative h-20 cursor-pointer border border-stroke p-2 transition duration-500 hover:bg-gray dark:border-strokedark dark:hover:bg-meta-4 md:h-25 md:p-6 xl:h-31">
-                <span className="font-medium text-black dark:text-white">
+              <td className="ease relative h-20 bg-yellow-200 cursor-pointer border border-stroke  transition duration-500 hover:bg-gray dark:border-strokedark dark:hover:bg-meta-4 md:h-25  xl:h-31">
+              <h1 className="font-medium mb-2  text-black dark:text-white">
                   2
-                </span>
+                </h1>
+                <h1 className="font-medium  px-4 py-2 border-b-2 text-black dark:text-white">
+                  8:10:30
+                </h1>
+                <h1 className="font-medium px-4 py-1  text-black dark:text-white">
+                13:15:50  <span className="text-xs"> retair: 0:15:50</span> 
+                </h1>
               </td>
-              <td className="ease relative h-20 cursor-pointer border border-stroke p-2 transition duration-500 hover:bg-gray dark:border-strokedark dark:hover:bg-meta-4 md:h-25 md:p-6 xl:h-31">
+              <td className="ease relative bg-yellow-100 h-20 cursor-pointer border border-stroke p-2 transition duration-500 hover:bg-gray dark:border-strokedark dark:hover:bg-meta-4 md:h-25 md:p-6 xl:h-31">
                 <span className="font-medium text-black dark:text-white">
                   3
                 </span>
@@ -194,19 +194,7 @@ const Calendar = () => {
                 <span className="font-medium text-black dark:text-white">
                   25
                 </span>
-                <div className="group h-16 w-full flex-grow cursor-pointer py-1 md:h-30">
-                  <span className="group-hover:text-primary md:hidden">
-                    More
-                  </span>
-                  <div className="event invisible absolute left-2 z-99 mb-1 flex w-[300%] flex-col rounded-sm border-l-[3px] border-primary bg-gray px-3 py-1 text-left opacity-0 group-hover:visible group-hover:opacity-100 dark:bg-meta-4 md:visible md:w-[290%] md:opacity-100">
-                    <span className="event-name text-sm font-semibold text-black dark:text-white">
-                      App Design
-                    </span>
-                    <span className="time text-sm font-medium text-black dark:text-white">
-                      25 Dec - 27 Dec
-                    </span>
-                  </div>
-                </div>
+          
               </td>
               <td className="ease relative h-20 cursor-pointer border border-stroke p-2 transition duration-500 hover:bg-gray dark:border-strokedark dark:hover:bg-meta-4 md:h-25 md:p-6 xl:h-31">
                 <span className="font-medium text-black dark:text-white">

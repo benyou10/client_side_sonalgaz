@@ -40,9 +40,7 @@ const Devices = ({ user, deleteUser,editUser}) => {
       };
   return (
     <tr key={user.id}>
-      <td className="text-left px-6 py-4 whitespace-nowrap">
-        <div className="text-sm text-gray-500">{user.id}</div>
-      </td>
+   
       <td className="text-left px-6 py-4 whitespace-nowrap">
         <div className="text-sm text-gray-500">{user.deviceName}</div>
       </td>

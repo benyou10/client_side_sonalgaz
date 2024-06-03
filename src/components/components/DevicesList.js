@@ -55,9 +55,7 @@ const DevicesList = ({ user }) => {
           <table className="min-w-full">
             <thead className="bg-gray-50">
               <tr>
-                <th className="text-left font-medium text-gray-500 uppercase tracking-wide py-3 px-6">
-                  ID
-                </th>
+            
                 <th className="text-left font-medium text-gray-500 uppercase tracking-wide py-3 px-6">
                 device name
                 </th>

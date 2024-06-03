@@ -76,23 +76,25 @@ const AttendenceRecords = ({ user }) => {
             <thead className="bg-gray-50">
               <tr>
                 <th className="text-left font-medium text-gray-500 uppercase tracking-wide py-3 px-6">
-                  ID
+                Attendence day 
+                </th>
+               
+               
+                <th className="text-left font-medium text-gray-500 uppercase tracking-wide py-3 px-6">
+                  morning_attendece
                 </th>
                 <th className="text-left font-medium text-gray-500 uppercase tracking-wide py-3 px-6">
-                  Attendence time
+                  morning_leave
                 </th>
                 <th className="text-left font-medium text-gray-500 uppercase tracking-wide py-3 px-6">
-                  Attendence Record
+                mid_day_attendence
                 </th>
                 <th className="text-left font-medium text-gray-500 uppercase tracking-wide py-3 px-6">
-                  state
-                </th>
-                <th className="text-left font-medium text-gray-500 uppercase tracking-wide py-3 px-6">
-                  name
+                mid_day_leave
                 </th>
                
                 <th className="text-right font-medium text-gray-500 uppercase tracking-wide py-3 px-6">
-                  department
+                  attendence_state
                 </th>
               </tr>
             </thead>

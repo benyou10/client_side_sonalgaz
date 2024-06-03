@@ -12,7 +12,7 @@ const page = () => {
 
   return (
     <div>
-{session  && session.user.image ==1 ? <AddDevices /> :<div className='text-5xl text-center'>u dont have access to this page</div> }
+{session  && session?.user?.image !="employee_default" ? <AddDevices /> :<div className='text-5xl text-center'>you dont have access to this page</div> }
 
 
     </div>

@@ -25,14 +25,14 @@ pages:{
         // Add your authorization logic here
         const { email, password } = credentials;
         // Example: Check if email and password are valid
-        const query=`select * from employees where first_name="${email}" and matricule=${password}`
+        const query=`select * from employees where matricule="${email}" and password=${password}`
         const user=await executequery(query,[])
         
         if (user) {
           console.log(user)
           // Return user object if credentials are valid
          // Assuming user is an array and we take the first result
-          return { id:0,name:user.first_name,email:user.last_name,image:user.role_id };
+          return { id:0,name:{'user':user.first_name,'id':user.id,'matrciule':user.matricule,'department':user.department_id,'birthday':user.birthday},email:user.last_name,image:user.role_id };
           
 
         } else {

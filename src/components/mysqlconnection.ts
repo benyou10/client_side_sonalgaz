@@ -5,7 +5,7 @@ const executeQuery = async (query, data) => {
         const db = await mysql.createConnection({
             host: 'localhost',
             port: 3306,
-            database: 'attendence',
+            database: 'db9',
             user: 'admin',
             password: 'P@ssw0rd!MySQL2024'
             

@@ -21,9 +21,10 @@ import { CogIcon } from "@heroicons/react/16/solid";
         <button className="w-10 h-10" onClick={()=> setSidebarOpen(!sidebarOpen)}><BarsArrowDownIcon/></button>
         <SidebarWithBurgerMenu setSidebarOpen={setSidebarOpen} sidebarOpen={sidebarOpen}/>
       </div>
+      <Link href="/dashboard">
       <div>
         <Image width={70} height={0} src='/sonelgaz.png' alt="logo" />
-      </div>
+      </div></Link>
       <div className=" sm:flex sm:items-center">
        <Link href='/api/auth/signout'
                  className="text-black text-sm font-bold border mr-2 px-4 py-2 rounded-lg hover:text-orange-600 hover:border-orange-600"
@@ -34,7 +35,7 @@ import { CogIcon } from "@heroicons/react/16/solid";
       > SignOut
        </Link>
         <Link
-          href="#"
+          href="https://www.sonelgaz.dz/fr/709/l-ecole--echnique-de-Blida-ETB"
           className="text-black text-sm font-bold border px-4 py-2 rounded-lg hover:text-orange-600 hover:border-orange-600"
         >
           Contact us
