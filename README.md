@@ -1,117 +1,87 @@
-# TailAdmin Next.js - Free Next.js Tailwind Admin Dashboard Template
+# ETB Sonelgaz HR Platform for Access Control
 
-TailAdmin is a free and open-source admin dashboard template built on **Next.js and Tailwind CSS** providing developers with everything they need to create a feature-rich and data-driven: back-end, dashboard, or admin panel solution for any sort of web project.
+## Introduction
+Welcome to the ETB Sonelgaz HR Platform for Access Control. This platform is designed to manage and control access for employees within the organization. The system is built using a modern tech stack, ensuring reliability, scalability, and an engaging user experience.
 
-[![tailwind nextjs admin template](https://github.com/TailAdmin/free-nextjs-admin-dashboard/blob/main/tailadmin-nextjs.jpg)](https://nextjs-demo.tailadmin.com/)
+## Technologies Used
+- **Frontend:** Next.js, React Three Fiber
+- **Backend:** Spring Boot
+- **Database:** MySQL
 
-With TailAdmin Next.js, you get access to all the necessary dashboard UI components, elements, and pages required to build a high-quality and complete dashboard or admin panel. Whether you're building a dashboard or admin panel for a complex web application or a simple website. 
-
-TailAdmin utilizes the powerful features of **Next.js 13** and common features of Next.js such as server-side rendering (SSR), static site generation (SSG), and seamless API route integration. Combined with the advancements of **React 18** and the robustness of **TypeScript**, TailAdmin is the perfect solution to help get your project up and running quickly.
-
-### [✨ Visit Website](https://tailadmin.com/)
-### [🚀 PRO Demo](https://nextjs-demo.tailadmin.com/)
-### [🚀 FREE Demo](https://nextjs-free-demo.tailadmin.com/)
-
-### TailAdmin Next.js PRO vs TailAdmin Next.js FREE Comparison 📊
-
-#### [TailAdmin Next.js PRO](https://nextjs-demo.tailadmin.com/)
-- 4 Unique Dashboards: Analytics, Ecommerce, Marketing, and CRM (More will be added)
-- 120+ Dashboard UI Components
-- 200+ Total UI Elements
-- 45+ HTML Files
-- All Essential Elements and Files
-- Full Figma Design Source - As Shown on Demo
-___
-
-#### [TailAdmin Next.js FREE](https://free-nextjs-demo.tailadmin.com/)
-- 1 Unique Dashboard
-- 30+ Dashboard UI Components
-- 50+ Total UI Elements 
-- 10+ HTML Files
-- TypeScript Support
-- Basic UI Kit Elements and Files
-- Figma Design Source - Free Sample
-___
-
-### [⬇️ Download Now](https://tailadmin.com/download)
-
-### [⚡ Get PRO Version](https://tailadmin.com/pricing)
-
-### [📄 Documentation/Installation](https://tailadmin.com/docs)
-
-### [🖌️ TailAdmin Figma Free Sample](https://www.figma.com/community/file/1214477970819985778)
-
-### [👉 TailAdmin HTML Version](https://github.com/TailAdmin/tailadmin-free-tailwind-dashboard-template)
-
+## Features
+- **User Authentication and Authorization:** Secure login and role-based access control.
+- **Employee Management:** Add, update, delete, and view employee details.
+- **Access Control:** Define and manage access levels for different areas within the organization.
+- **3D Visualizations:** Interactive 3D models using React Three Fiber to visualize access zones and employee movements.
+- **Real-time Notifications:** Get instant alerts on access breaches or unauthorized attempts.
 
 ## Installation
-Here are the steps you need to follow to install the dependencies.
 
-1. Download and extract the template from Next.js Templates.
+### Prerequisites
+- Node.js (>= 14.x)
+- Java (>= 11)
+- MySQL (>= 8.x)
 
-2. After that **cd** into the template directory then run this command to install all the dependencies
+### Frontend Setup
+1. Clone the repository:
+    ```bash
+    git clone https://github.com/yourusername/etb-sonelgaz-hr-platform.git
+    cd etb-sonelgaz-hr-platform/frontend
+    ```
 
-```
-npm install
-```
-or
+2. Install dependencies:
+    ```bash
+    npm install
+    ```
 
-```
-yarn install
-```
+3. Start the development server:
+    ```bash
+    npm run dev
+    ```
 
-3. Now run this command to start the developement server
+### Backend Setup
+1. Navigate to the backend directory:
+    ```bash
+    cd ../backend
+    ```
 
-```
-npm run dev
-```
+2. Build the project:
+    ```bash
+    ./mvnw clean install
+    ```
 
-or 
+3. Run the Spring Boot application:
+    ```bash
+    ./mvnw spring-boot:run
+    ```
 
-```
-yarn dev
-```
+### Database Setup
+1. Create a MySQL database:
+    ```sql
+    CREATE DATABASE etb_sonelgaz_hr;
+    ```
 
+2. Update the `application.properties` file in the backend project with your MySQL credentials:
+    ```properties
+    spring.datasource.url=jdbc:mysql://localhost:3306/etb_sonelgaz_hr
+    spring.datasource.username=yourusername
+    spring.datasource.password=yourpassword
+    ```
 
-## Free Admin Dashboard Template for Next.js Built-with Tailwind CSS, React 18 and TypeScript
-TailAdmin Next.js is a free dashboard template, which uses Tailwind CSS, is a great starting point for dashboard UI. This template uses the Next.js JavaScript framework and the easy-to-use Tailwind CSS framework. The Tailwind CSS and Next.js Dashboard Template comes with ready-made components like navigation menus, charts, tables, and forms. These components can be easily adjusted and added to any Next.js web application.
+## Usage
+1. Open your browser and navigate to `http://localhost:3000` to access the frontend.
+2. Use the credentials provided by the admin to log in and start managing employee access.
 
-TailAdmin for Next.js provides all essential Next.js + Tailwind CSS UI components that can be copied and pasted directly into your dashboard projects. The range of components includes charts, graphs, navbars, tabs, buttons, cards, tables, profiles, forms, modals, app pages, calendars, web app example templates, and more, all coded for Next.js React and styled using Tailwind CSS.
+## Contributing
+We welcome contributions to enhance the platform. Please follow these steps:
+1. Fork the repository.
+2. Create a new branch (`git checkout -b feature/your-feature`).
+3. Commit your changes (`git commit -m 'Add some feature'`).
+4. Push to the branch (`git push origin feature/your-feature`).
+5. Open a pull request.
 
-If you're on the hunt for a top-quality Next.js-Tailwind Dashboard, Admin Panel Template, or UI Kit, TailAdmin is the perfect choice for you!
+## License
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
-### 📄 License
-TailAdmin Next.js Free is 100% free and open-source; feel free to use it with your personal and commercial projects.
-
-### 💜 Support
-If you like the template, please star this repository to inspire the team to create more stuff like this and reach more users like you!
-
-
-## Update Logs
-
-### Version 1.3.1 - [Feb 12, 2024]
-
-#### Issues
-
-- **Issues 02:** Fix Misspelling issue [Default Layout/Layouts].
-
-#### Enhancements
-- **Enhancement 01:** Update style.css
-
-### Version 1.3.0 - [Feb 05, 2024]
-
-#### Enhancements
-
-- **Enhancement 01:** Update Next.js into version 14
-- **Enhancement 02:** Integrate flatpickr in [Date Picker/Form Elements]
-- **Enhancement 03:** Change color after select an option [Select Element/Form Elements].
-- **Enhancement 04:** Make it functional [Multiselect Dropdown/Form Elements].
-- **Enhancement 05:** Make best value editable [Pricing Table One/Pricing Table].
-- **Enhancement 06:** Add Default Layout Component and make App/Layout more clean and use it in every pages.
-
-### Version 0.1.0 - Initial Release - [Aug 3, 2023]
-
-- Initial release of TailAdmin Next.
-# client_side_sonalgaz
-# client_side_sonalgaz
-
+## Contact
+For any queries or support, please contact the project maintainer at support@etbsonelgaz.com.
